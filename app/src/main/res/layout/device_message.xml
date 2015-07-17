@@ -53,7 +53,8 @@
             android:listSelector="@android:color/transparent"
             android:stackFromBottom="true"
             android:transcriptMode="alwaysScroll"
-            android:layout_above="@+id/relativelayout" />
+            android:layout_above="@+id/relativelayout"
+            android:layout_below="@+id/status_text" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -104,8 +105,8 @@
                 android:layout_marginRight="10dp" />
         </RelativeLayout>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"

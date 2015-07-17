@@ -101,6 +101,9 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 
                     @Override
                     public void onClick(View v) {
+
+                        runAsync();
+
                         EditText textMessage = (EditText) mContentView.findViewById(R.id.text);
                         sendMessage(textMessage.getText().toString());
 
@@ -115,6 +118,13 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 
 		return mContentView;
 	}
+
+    public void runAsync() {
+        if (!server_running){
+            new ServerAsyncTask(getActivity(), mContentView.findViewById(R.id.status_text), mListMessage, mChatMessageAdapter).execute();
+            server_running = true;
+        }
+    }
 
     public void sendMessage(String message) {
         String localIP = Utils.getLocalIPAddress();
@@ -149,10 +159,7 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 		}
 		this.info = info;
 
-		if (!server_running){
-			new ServerAsyncTask(getActivity(), mContentView.findViewById(R.id.status_text), mListMessage, mChatMessageAdapter).execute();
-			server_running = true;
-		}
+        runAsync();
 
 		mContentView.findViewById(R.id.btn_connect).setVisibility(View.GONE);
         mContentView.findViewById(R.id.btn_disconnect).setVisibility(View.VISIBLE);
@@ -194,6 +201,7 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 
 				serverSocket.close();
 				server_running = false;
+
 				return message;
 			} catch (IOException e) {
 				Log.e(WiFiDirectActivity.TAG, e.getMessage());
