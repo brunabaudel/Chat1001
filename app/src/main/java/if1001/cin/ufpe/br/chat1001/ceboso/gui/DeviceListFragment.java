@@ -75,6 +75,8 @@ public class DeviceListFragment extends ListFragment implements PeerListListener
 
         WiFiDirectActivity.myBundle.putParcelable("DEVICE", device);
 
+        ((DeviceListFragment.DeviceActionListener) getActivity()).disconnect();
+
         DeviceMessageFragment nextFrag = new DeviceMessageFragment();
         this.getFragmentManager().beginTransaction()
                 .replace(R.id.container_body, nextFrag, null)

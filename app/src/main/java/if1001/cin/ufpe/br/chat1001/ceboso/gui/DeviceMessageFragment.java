@@ -42,7 +42,6 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 	public static int PORT = 8988;
 	private static boolean server_running = false;
 
-	protected static final int CHOOSE_FILE_RESULT_CODE = 20;
 	private View mContentView = null;
 	private WifiP2pDevice device;
 	private WifiP2pInfo info;
@@ -145,8 +144,6 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
 	@Override
 	public void onConnectionInfoAvailable(final WifiP2pInfo info) {
 
-        //((WiFiDirectActivity) getActivity()).replaceFragments();
-
 		if (progressDialog != null && progressDialog.isShowing()) {
 			progressDialog.dismiss();
 		}
@@ -161,8 +158,8 @@ public class DeviceMessageFragment extends Fragment implements ConnectionInfoLis
         mContentView.findViewById(R.id.btn_disconnect).setVisibility(View.VISIBLE);
 	}
 
-	public void showDetails() {
-		this.device = WiFiDirectActivity.myBundle.getParcelable("DEVICE");
+	public void showDetails(WifiP2pDevice device) {
+		this.device = device;
 
 	}
 

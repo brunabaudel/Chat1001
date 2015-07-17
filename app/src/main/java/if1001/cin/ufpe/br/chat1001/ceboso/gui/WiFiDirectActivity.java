@@ -73,14 +73,6 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         unregisterReceiver(receiver);
     }
 
-    public void replaceFragments() {
-        DeviceMessageFragment fragment = new DeviceMessageFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_body, fragment);
-        fragmentTransaction.commit();
-    }
-
     public void resetData() {
         Fragment fragment = getFragmentManager().findFragmentById(R.id.container_body);
         DeviceListFragment fragmentList = null;
@@ -158,12 +150,10 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
         if(fragment instanceof DeviceMessageFragment) {
             DeviceMessageFragment deviceMessageFragment = (DeviceMessageFragment) getFragmentManager()
                     .findFragmentById(R.id.container_body);
-            deviceMessageFragment.showDetails();
+            deviceMessageFragment.showDetails(device);
         }
 
     }
-
-
 
     @Override
     public void connect(WifiP2pConfig config) {
@@ -171,6 +161,7 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
 
             @Override
             public void onSuccess() {
+
             }
 
             @Override
@@ -191,20 +182,20 @@ public class WiFiDirectActivity extends Activity implements ChannelListener, Dev
             final DeviceMessageFragment deviceMessageFragment = (DeviceMessageFragment) getFragmentManager()
                     .findFragmentById(R.id.container_body);
             deviceMessageFragment.resetViews();
-            manager.removeGroup(channel, new ActionListener() {
-
-                @Override
-                public void onFailure(int reasonCode) {
-                    Log.d(TAG, "Disconnect failed. Reason :" + reasonCode);
-
-                }
-
-                @Override
-                public void onSuccess() {
-                }
-
-            });
         }
+        manager.removeGroup(channel, new ActionListener() {
+
+            @Override
+            public void onFailure(int reasonCode) {
+                Log.d(TAG, "Disconnect failed. Reason :" + reasonCode);
+
+            }
+
+            @Override
+            public void onSuccess() {
+            }
+
+        });
     }
 
     @Override
