@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_bar_color">#FF000000</color>
+    <color name="layout_border_color">#FF111111</color>
+    <color name="colorPrimary">#ff4087fa</color>
+    <color name="colorPrimaryDark">#ff5494ef</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="colorAccent">#ff9ed7ff</color>
+
+    <color name="black">#ff000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="a">#dcf1fff3</color>
+    <color name="c">#32afe5ff</color>
+    <color name="b">#328fffb8</color>
+
+    <color name="blue">#ff000099</color>
+    <color name="blue_light">#ffbecbde</color>
+    <color name="blue_light_0">#ff3d91cb</color>
+    <color name="blue_light_1">#E1F2EF</color>
+    <color name="blue_light_2">#ff5761db</color>
+    <color name="blue_light_3">#ffdee4fa</color>
+    <color name="blue_light_4">#ffc3d4fa</color>
+
+    <color name="green">#ff009900</color>
+
+    <color name="yellow">#FFCC29</color>
+    <color name="orange">#F5E4C6</color>
+    <color name="orange_light">#F2EEE6</color>
+    <color name="red">#E81018</color>
+
+    <!--  -->
+
+    <color name="gray_dark">#DDDDDD</color>
+    <color name="gray_light">#E7E7E7</color>
+    <color name="gray_medium">#626262</color>
+
+
+    <color name="blue_dark">#006283</color>
+    <color name="blue_dark2">#ffd8e8ff</color>
+
+</resources>
